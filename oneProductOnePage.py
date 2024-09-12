@@ -29,32 +29,16 @@ for td in tds:
     table.append(el)
     i+=1
 
-print(desc.text)
-print(table)
+
 
 #writing in a file
-print('---------------------------------------')
 
-with open('oneProductExtracted.csv', mode='w') as csvfile:
-    colTitles = []#title
-    contents = []#description
+with open('oneProductExtracted.csv', mode="w", newline="") as csvfile:
 
-    #pull all the informations
-    colTitles.append('desc')
-    contents.append(desc.text)
-
+    writer = csv.writer(csvfile)
+    writer.writerow(['desc\t'+desc.text])
     for el in table:
-        colTitles.append(el[0])
-        contents.append(el[1])
+        writer.writerow([el[0]+'\t'+el[1]])
+    csvfile.close()
     
-    row={}
-    for i in range(len(colTitles)):
-        row[colTitles[i]] =contents[i]
-   
-    print(row)
 
-    #write in a file
-    writer = csv.DictWriter(csvfile, fieldnames=colTitles)
-    writer.writeheader()
-    writer.writerow(row)
-    
