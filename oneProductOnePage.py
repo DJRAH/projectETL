@@ -32,7 +32,7 @@ def write(link,titleWritten, title):
 
     #writing in a file
 
-    with open(title+'.csv', mode="a", newline="") as csvfile:
+    with open('./csvFiles/'+title+'.csv', mode="a", newline="") as csvfile:
 
         writer = csv.writer(csvfile)
         if titleWritten==0:
