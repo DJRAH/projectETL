@@ -2,7 +2,7 @@ import requests
 import csv
 from bs4 import BeautifulSoup #try to install it if it dosn't done yet
 
-def write(link,titleWritten):
+def write(link,titleWritten, title):
     url = link #the choosen book  
     print(url)
     res = requests.get(url)
@@ -32,7 +32,7 @@ def write(link,titleWritten):
 
     #writing in a file
 
-    with open('oneProductExtracted.csv', mode="a", newline="") as csvfile:
+    with open(title+'.csv', mode="a", newline="") as csvfile:
 
         writer = csv.writer(csvfile)
         if titleWritten==0:

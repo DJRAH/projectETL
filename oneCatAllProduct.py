@@ -3,8 +3,8 @@ import csv
 from bs4 import BeautifulSoup #try to install it if it dosn't done yet
 import oneProductOnePage
 
-def extractAllProductsOfCategory(aurl):
-    url = "http://books.toscrape.com/"+aurl #the choosen book  
+def extractAllProductsOfCategory(aurl, title):
+    url = "http://books.toscrape.com/"+aurl #the url of the category
     print(url)
     print("------------------------- url of a category ---------------------------")
     res = requests.get(url)
@@ -17,9 +17,10 @@ def extractAllProductsOfCategory(aurl):
 
     #recover all page's link of the category
     i=1
-    urlsCat = []#contains all url of the pagination of the category
+    urlsCat = []#contains all url of the product's category
     urlsCat.append(url)
 
+    #check if there's a next button, some add others urls to the category list's links
     while next:
         linkNext = (next).a['href']
         newLink = url[:url.rfind('/')]+'/'+linkNext
@@ -54,7 +55,7 @@ def extractAllProductsOfCategory(aurl):
     #write all product of the category to a file
     i=0
     for li in links:
-        oneProductOnePage.write(li,i)
+        oneProductOnePage.write(li,i,title)
         i=1
 
 
