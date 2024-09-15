@@ -24,7 +24,9 @@ def write(link,titleWritten):
 
     for td in tds:
         table.append(td.text)
-    table.append(desc.text)
+    
+    if desc:#some product has no description, in this case, we avoid error
+        table.append(desc.text)
 
 
 
@@ -35,6 +37,7 @@ def write(link,titleWritten):
         writer = csv.writer(csvfile)
         if titleWritten==0:
             writer.writerow(col)
+        
         writer.writerow(table)
 
         
