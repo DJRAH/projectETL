@@ -1,2 +1,2 @@
-csvFiles/*.csv
-jpgsFiles/*.jpg
+*.csv
+*.jpg
