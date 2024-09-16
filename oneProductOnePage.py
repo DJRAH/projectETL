@@ -48,7 +48,8 @@ def write(link,titleWritten, title, catName):
         writer = csv.writer(csvfile)
         if titleWritten==0:
             writer.writerow(col)
-            os.mkdir('./jpgsFiles/'+catName)
+            if not os.path.isdir('./jpgsFiles/'+catName):
+                os.mkdir('./jpgsFiles/'+catName)
         
         writer.writerow(table)
 

@@ -5,8 +5,10 @@ import oneCatAllProduct
 import os
 
 
-os.mkdir('./jpgsFiles/')
-os.mkdir('./csvFiles/')
+if not os.path.isdir('./jpgsFiles/'):
+    os.mkdir('./jpgsFiles/')
+if not os.path.isdir('./csvFiles/'):
+    os.mkdir('./csvFiles/')
 
 url = "http://books.toscrape.com" #the choosen book  
 res = requests.get(url)
