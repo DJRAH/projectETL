@@ -2,6 +2,11 @@ import requests
 import csv
 from bs4 import BeautifulSoup #try to install it if it dosn't done yet
 import oneCatAllProduct 
+import os
+
+
+os.mkdir('./jpgsFiles/')
+os.mkdir('./csvFiles/')
 
 url = "http://books.toscrape.com" #the choosen book  
 res = requests.get(url)
