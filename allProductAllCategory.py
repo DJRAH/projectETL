@@ -23,4 +23,3 @@ for link in categoriesUrl:
     title=((((str(link).split('/'))[3])).split('_'))[0]
     oneCatAllProduct.extractAllProductsOfCategory(link, title)
 
-

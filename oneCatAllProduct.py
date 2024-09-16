@@ -6,6 +6,7 @@ import oneProductOnePage
 def extractAllProductsOfCategory(aurl, title):
     url = "http://books.toscrape.com/"+aurl #the url of the category
     print(url)
+    catName = ((aurl.split('/')[3]).split('_')[0])
     print("------------------------- url of a category ---------------------------")
     res = requests.get(url)
 
@@ -55,7 +56,7 @@ def extractAllProductsOfCategory(aurl, title):
     #write all product of the category to a file
     i=0
     for li in links:
-        oneProductOnePage.write(li,i,title)
+        oneProductOnePage.write(li,i,title, catName)
         i=1
 
 
